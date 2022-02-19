@@ -15,8 +15,12 @@ class IndexPostsTest extends TestCase
     {
         $posts = Post::factory()->count(10)->create();
         $response = $this->get(route('posts.index'));
-
+        
         $response->assertOk();
+        $postResponse = $response->getOriginalContent()['posts'];
+
+        $response->assertViewIs('posts.index');
+        $this->assertNotEmpty($postResponse->count());
         //$response->getContent();
     }
 }
