@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="bg-white rounded-lg dhadow-sm p-4 text-center felx flex-col gap-5">
+    <div class="bg-white rounded-lg dhadow-sm p-4 text-center flex flex-col gap-5">
         <table>
             <thead>
                 <tr>
@@ -9,12 +9,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    @foreach ($posts as $post)
+                @foreach ($posts as $post)
+                    <tr>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->content }}</td>
-                    @endforeach
-                </tr>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
