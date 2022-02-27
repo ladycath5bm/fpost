@@ -2,9 +2,9 @@
 
 return [
     'titles' => [
-        'create' => 'Crear un post',
-        'edit' => 'Editar post',
-        'index' => 'Ver posts'
+        'create' => 'Crear',
+        'edit' => 'Editar',
+        'index' => 'Ver'
     ],
     'fields' => [
         'title' => 'Titulo',

@@ -12,7 +12,7 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-
+    'welcome' => 'Bienvenido',
     'previous' => '&laquo; Anterior',
     'next' => 'Siguiente &raquo;',
 

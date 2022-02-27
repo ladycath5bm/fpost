@@ -1,5 +1,9 @@
-@extends('layouts.app')
+@extends('dashboard')
 @section('content')
+    <post>
+        <!--puedo itilizar model binding, si uso .vue no puedo usar var php-->
+        
+    </post>
     <div class="bg-white rounded-lg dhadow-sm p-4 text-center flex flex-col gap-5">
         <table>
             <thead>

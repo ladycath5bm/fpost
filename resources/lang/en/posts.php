@@ -2,8 +2,8 @@
 
 return [
     'titles' => [
-        'create' => 'Create a post',
-        'index' => 'Show posts'
+        'create' => 'Create',
+        'index' => 'Show'
     ],
     'fields' => [
         'title' => 'Tittle',

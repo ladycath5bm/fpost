@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\PostController;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts', PostController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::resource('posts', PostController::class)->names('posts');
+require __DIR__.'/auth.php';
+
+Route::get('pay/{gateway}', [PayController::class, 'pay'])->name('pay');
