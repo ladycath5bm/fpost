@@ -4,12 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductVisitsTable extends Migration
+class CreatePostVisitsTable extends Migration
 {
 
     public function up(): void
     {
-        Schema::create('product_visits', function (Blueprint $table) {
+        Schema::create('post_visits', function (Blueprint $table) {
             $table->id();
             $table->foreignId('post_id')->constrained();
             $table->string('ip', 120);
@@ -21,6 +21,6 @@ class CreateProductVisitsTable extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('product_visits');
+        Schema::dropIfExists('post_visits');
     }
 }
