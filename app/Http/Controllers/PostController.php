@@ -77,9 +77,8 @@ class PostController extends Controller
         return redirect('excel-csv-file');
     }
 
-    public function export()
+    public function export($id)
     {
-        Excel::download(new PostsExport, 'posts.csv');
-        return redirect('/posts')->with('success', 'All good!');
+        return Excel::download(new PostsExport, 'posts.'.$id);
     }
 }

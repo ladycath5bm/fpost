@@ -9,8 +9,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 </head>
 <body class="antialiased h-screen flex flex-col gap-5 bg-gray-50 text-gray-600">
-    <div class="bg-gray-100 shadow-lg w-full h-28 flex px-10">
-        @svg('icon-logo', 'object-content h-28 w-28 mx-4')
+    <div class="bg-gray-100 shadow-lg w-full h-16  px-10 flex items-center">
+        <span class="mx-2 ">
+            <a href="{{ route('welcome') }}">Home</a>
+        </span>
+        <span class="mx-2 ">
+            <a href="{{ route('posts.index') }}">Posts</a>
+        </span>
+        
+        <span class="mx-2">
+            <a href="{{ route('exports') }}">Exports/imports</a>
+        </span>
+      
     </div>
     <div class="max-w-3xl mx-auto h-full w-full">
         @yield('content')

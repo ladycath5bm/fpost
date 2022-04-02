@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PostsExport;
 use App\Exports\UsersExport;
+use App\Imports\PostsImport;
 use App\Imports\UsersImport;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -17,18 +19,13 @@ class ExcelCSVController extends Controller
 
     public function importExcelCSV(Request $request)
     {
-        $validatedData = $request->validate([
- 
-            'file' => 'required',
-  
-        ]);
-        Excel::import(new UsersImport,$request->file('file'));
-        return redirect('excel-csv-file')->with('status', 'The file has been excel/csv imported to database');
+        Excel::import(new PostsImport,$request->file('file'));
+        return redirect('excel-csv-file')->with('status', 'holi');
 
     }
 
-    public function exportExcelCSV($slug) 
+    public function exportExcelCSV($id) 
     {
-        return Excel::download(new UsersExport, 'users.'.$slug);
+        return Excel::download(new PostsExport, 'posts.'.$id);
     }
 }
