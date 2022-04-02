@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\PostVisit;
 use App\Events\PostVisited;
+use App\Exports\PostsExport;
+use App\Imports\PostsImport;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -23,6 +26,7 @@ class PostController extends Controller
             ->groupBy('post_id')
             ->orderBy('visits', 'DESC')
             ->limit(1);
+        //dd($postsVisited);
 
         return view('posts.index', compact('posts', 'postsVisited'));
     }
@@ -65,5 +69,17 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect()->route('posts.index');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new PostsImport, $request->file('file'));
+        return redirect('excel-csv-file');
+    }
+
+    public function export()
+    {
+        Excel::download(new PostsExport, 'posts.csv');
+        return redirect('/posts')->with('success', 'All good!');
     }
 }
